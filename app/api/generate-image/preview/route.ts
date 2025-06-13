@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
     
     addText('on ', false);
     addText(formattedDate, true);
-    addText(', instead of spending', false);
+    addText(', instead of spending ', false);
     
     const nextSegmentWidth = ctx.measureText(` $${formattedPrice}`).width;
     if (currentX + nextSegmentWidth > padding + maxWidth) {
