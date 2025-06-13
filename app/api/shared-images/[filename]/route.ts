@@ -1,13 +1,17 @@
-import { NextRequest } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import { NextRequest } from 'next/server';
+
+type Params = Promise<{
+  filename: string;
+}>
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { filename: string } }
+  { params }: { params: Params }
 ) {
   try {
-    const filename = params.filename;
+    const { filename } = await params;
     
     // Validate filename to prevent directory traversal attacks
     if (!filename || filename.includes('..')) {
@@ -20,6 +24,7 @@ export async function GET(
       // Check if file exists
       await fs.access(filePath);
     } catch (error) {
+      console.error('Error', error);
       return new Response('Image not found', { status: 404 });
     }
 
@@ -30,7 +35,6 @@ export async function GET(
     return new Response(fileData, {
       headers: {
         'Content-Type': 'image/png',
-        'Content-Disposition': 'inline',
         'Cache-Control': 'public, max-age=31536000',
       },
     });
