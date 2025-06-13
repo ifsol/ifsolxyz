@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
     }
     
     addText(`$${formattedPrice}`, true);
-    addText('on a ', false);
+    addText(' on a ', false);
     addText(productName, true);
     
     const commaWidth = ctx.measureText(',').width;

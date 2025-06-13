@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
   }
   
   addText(` $${formattedPrice}`, 'highlight');
-  addText('on a ', 'normal');
+  addText(' on a ', 'normal');
   addText(productName, 'highlight');
   
   const commaWidth = ctx.measureText(',').width;
