@@ -21,18 +21,37 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ data, imageUrl }) => {
   const handleDownload = async () => {
     try {
       if (imageUrl) {
-        const response = await fetch(`/shared-images/${imageUrl}`);
+        // For existing images, create a direct download request
+        const downloadUrl = `/api/shared-images/${imageUrl}`;
+        
+        // Create a special fetch with headers to force download
+        const response = await fetch(downloadUrl);
+        
+        // Check if the response is valid
+        if (!response.ok) {
+          throw new Error('Failed to download image');
+        }
+        
+        // Get the image as a blob
         const blob = await response.blob();
         
-        const url = window.URL.createObjectURL(blob);
+        // Make sure the blob is properly typed as PNG
+        const typedBlob = new Blob([blob], { type: 'image/png' });
+        
+        // Create an object URL for download
+        const url = window.URL.createObjectURL(typedBlob);
         
         const a = document.createElement('a');
         a.href = url;
         a.download = `ifsol-${data.productName.replace(/\s+/g, '-')}.png`;
         document.body.appendChild(a);
         a.click();
-        window.URL.revokeObjectURL(url);
-        a.remove();
+        
+        // Clean up
+        setTimeout(() => {
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+        }, 100);
       } else {
         setIsGenerating(true);
         
@@ -56,14 +75,21 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ data, imageUrl }) => {
         }
         
         const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
+        // Make sure the blob is properly typed as PNG
+        const typedBlob = new Blob([blob], { type: 'image/png' });
+        
+        const url = window.URL.createObjectURL(typedBlob);
         const a = document.createElement('a');
         a.href = url;
         a.download = `ifsol-${data.productName.replace(/\s+/g, '-')}.png`;
         document.body.appendChild(a);
         a.click();
-        window.URL.revokeObjectURL(url);
-        a.remove();
+        
+        // Clean up properly with a slight delay
+        setTimeout(() => {
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+        }, 100);
       }
     } catch (error) {
       console.error('Error downloading image:', error);

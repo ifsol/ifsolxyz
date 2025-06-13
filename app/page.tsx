@@ -119,7 +119,7 @@ export default function Home() {
       if (pnlImageUrl) {
         const { productName, releaseDate, productPrice, currentValue, profitLossPercentage } = comparisonResult;
         
-        const fullImageUrl = `https://ifsol.xyz/shared-images/${pnlImageUrl}`;
+        const fullImageUrl = `https://ifsol.xyz/api/shared-images/${pnlImageUrl}`;
         
         const tweetText = encodeURIComponent(
           `I spent $${productPrice} on a ${productName} in ${releaseDate}.\n\nIf I had bought SOL instead, I'd have $${currentValue.toFixed(2)} today (${profitLossPercentage > 0 ? '+' : ''}${profitLossPercentage.toFixed(2)}%).\n\nCalculate your own financial regrets at ifsol.xyz #IFSOL #Solana`
@@ -332,7 +332,7 @@ export default function Home() {
               ) : pnlImageUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img 
-                  src={`/shared-images/${pnlImageUrl}`} 
+                  src={`/api/shared-images/${pnlImageUrl}`} 
                   alt="Investment comparison" 
                   className="w-full h-auto"
                 />

@@ -174,7 +174,7 @@ export async function POST(request: NextRequest) {
       console.log('🌐 Server host:', host);
       
       const imageUrl = `${fileName}.png`;
-      const fullUrl = `${protocol}://${host}/shared-images/${fileName}.png`;
+      const fullUrl = `${protocol}://${host}/api/shared-images/${fileName}.png`;
       console.log('🔗 Image URL (returned to client):', imageUrl);
       console.log('🔗 Full URL (for debugging):', fullUrl);
       console.log('--------------------------------');

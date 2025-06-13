@@ -154,7 +154,7 @@ export async function POST(request: NextRequest) {
   return new NextResponse(buffer, {
     headers: {
       'Content-Type': 'image/png',
-      'Content-Disposition': 'attachment; filename="ifsol-result.png"',
+      'Content-Disposition': 'attachment; filename=ifsol-result.png',
     },
   });
 }
