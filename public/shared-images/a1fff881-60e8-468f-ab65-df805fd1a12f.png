@@ -1,0 +1,141 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>IFSOL Image Preview</title>
+      <style>
+        @font-face {
+          font-family: 'Printvetica';
+          src: url('/fonts/Printvetica.otf') format('opentype');
+        }
+        @font-face {
+          font-family: 'Helvetica';
+          src: url('/fonts/Helvetica.ttf') format('truetype');
+        }
+        body {
+          margin: 0;
+          padding: 20px;
+          background-color: #f0f0f0;
+          font-family: 'Helvetica', sans-serif;
+        }
+        .preview-container {
+          width: 1200px;
+          height: 630px;
+          position: relative;
+          background-color: #000;
+          margin: 0 auto;
+        }
+        .white-card {
+          position: absolute;
+          top: 80px;
+          left: 40px;
+          width: 1120px;
+          height: 500px;
+          background-color: white;
+          border-radius: 16px;
+        }
+        .header {
+          position: absolute;
+          top: 50px;
+          left: 50px;
+          color: #1D1D1D;
+          font-weight: bold;
+          font-size: 24px;
+        }
+        .title {
+          position: absolute;
+          top: 120px;
+          left: 120px;
+          font-family: 'Printvetica', sans-serif;
+          font-weight: bold;
+          font-size: 58px;
+        }
+        .title-if {
+          color: #9333ea;
+        }
+        .title-normal {
+          color: #000;
+        }
+        .title-sol {
+          color: #9333ea;
+        }
+        .main-text {
+          position: absolute;
+          font-family: 'Printvetica', sans-serif;
+          font-size: 36px;
+        }
+        .text-normal {
+          color: #000;
+        }
+        .text-value {
+          color: #666;
+        }
+        .footer-logo {
+          position: absolute;
+          top: 470px;
+          left: 730px;
+          font-family: 'Printvetica', sans-serif;
+          font-weight: bold;
+          font-size: 120px;
+          color: #c4b5fd;
+        }
+        .footer-text {
+          position: absolute;
+          bottom: 0;
+          font-family: 'Printvetica', sans-serif;
+          font-size: 28px;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>IFSOL Image Preview</h1>
+      <div class="preview-container">
+        <div class="header">Twitter Post</div>
+        <div class="white-card"></div>
+        <div class="title">
+          <span class="title-if">IF</span>
+          <span class="title-normal"> I bought </span>
+          <span class="title-sol">SOL</span>
+          <span class="title-normal">...</span>
+        </div>
+        
+        <div class="main-text" style="top: 230px; left: 170px;">
+          <span class="text-normal">on </span>
+          <span class="text-value">September 2021</span>
+          <span class="text-normal">, instead of spending</span>
+        </div>
+        
+        <div class="main-text" style="top: 280px; left: 200px;">
+          <span class="text-value">$799.00</span>
+          <span class="text-normal"> on a </span>
+          <span class="text-value">iphone 13</span>
+        </div>
+        
+        <div class="main-text" style="top: 330px; left: 510px;">
+          <span class="text-normal">,</span>
+          <span class="text-normal"> i would have </span>
+          <span class="text-value">5.627</span>
+        </div>
+        
+        <div class="main-text" style="top: 380px; left: 200px;">
+          <span class="text-normal">SOL that would be worth </span>
+          <span class="text-value">$938.769</span>
+        </div>
+        
+        <div class="main-text" style="top: 430px; left: 200px;">
+          <span class="text-normal">today.</span>
+        </div>
+        
+        <div class="footer-logo">$IFSOL</div>
+        
+        <div class="footer-text" style="left: 120px; color: #666;">Try it yourself</div>
+        <div class="footer-text" style="left: 320px; font-weight: bold;">www.ifsol.xyz</div>
+        <div class="footer-text" style="left: 1000px; font-weight: bold;">@ifsolxyz</div>
+      </div>
+      
+      <div style="margin-top: 20px; text-align: center;">
+        <p>This is a preview of how the image will look. The actual generated image may have slight differences in font rendering.</p>
+      </div>
+    </body>
+    </html>
+  
